@@ -1,0 +1,26 @@
+//Excercise 1
+//https://repl.it/@Kunl19/ReverseWord#main.cpp
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    string greeting;
+    string new_greeting;
+
+    cout << "Enter a string to reverse: ";
+    cin >> greeting;
+
+
+    for (int n = greeting.length() - 1; n >= 0; n--) {
+        new_greeting.push_back(greeting[n]);
+    }
+
+    //Looping backwards through a string then push the new string into an empty string 
+
+    cout << "Original string: " << greeting << endl;
+    cout << "New reversed string: " << new_greeting << endl;
+
+}
