@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <boost/algorithm/string.hpp>
+
+//Excercise 3
+
+//https://repl.it/@Kunl19/Pallindromes#main.cpp
+
+using namespace std;
+
+string reverseWord(string word) {
+  reverse(word.begin(), word.end());
+  return word;
+}
+
+string removeSpaces(string word) 
+{
+  word.erase(remove(word.begin(), word.end(), ' '), word.end());
+  word.erase(remove(word.begin(), word.end(), '\t'), word.end());
+  return word;
+}
+
+string lowerCase(string word) {
+  boost::algorithm::to_lower(word);
+  return word;
+}
+
+string format(string word) {
+  return lowerCase(removeSpaces(word));
+}
+
+int main() {
+  string userInput, word, reverseUserInput;
+  cout << "Enter a word: ";
+  getline (cin, userInput);
+  word = userInput;
+  userInput = format(userInput);
+  reverseUserInput = reverseWord(userInput);
+  if (reverseUserInput == userInput) {
+    cout << word << " is a palindrome.";
+  } else {
+    cout << word << " isn't a palindrome.";
+  }
+  return 0;
+}
